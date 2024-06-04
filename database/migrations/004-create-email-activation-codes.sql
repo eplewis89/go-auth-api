@@ -13,7 +13,7 @@ create table EmailActivationCodes
     user_id integer not null default 0
 );
 
-alter table EmailActivationCodes owner to edgeworx;
+alter table EmailActivationCodes owner to goauth;
 
 -- create foreign keys
 

@@ -1,0 +1,17 @@
+// this file can be used to automatically set necessary envars
+// use with direnv
+// direnv.net
+// https://direnv.net/man/direnv.toml.1.html#codeprefixcode
+
+export POSTGRES_USER=user
+export POSTGRES_PASSWORD=password
+
+export GO_AUTH_ENVIRONMENT=development|staging|production
+export GO_AUTH_HTTP_PORT=3003
+export GO_AUTH_HTTP_PUBLIC_HOST=localhost
+export GO_AUTH_LOG_4XX_ERRORS=true
+export GO_AUTH_DETAIL_AUTH_ERRORS=true
+export GO_AUTH_DB_PG_CONN=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:5432/go-auth-db
+export GO_AUTH_DB_QUERY_MAX_GOROUTINES=10
+export GO_AUTH_TESTUSER_PASSWORD=password
+export GO_AUTH_OAPI_FILENAME=go-auth-api.oapi.yaml

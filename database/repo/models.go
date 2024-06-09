@@ -33,10 +33,10 @@ type User struct {
 	FirstName      string
 	LastName       string
 	Email          string
+	EmailActivated bool
 	EncrPassword   sql.NullString
 	SaltPassword   sql.NullString
 	TempPassword   sql.NullString
-	EmailActivated bool
 	CreatedAt      time.Time
 	UpdatedAt      sql.NullTime
 	DeletedAt      sql.NullTime

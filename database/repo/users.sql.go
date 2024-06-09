@@ -17,7 +17,7 @@ INSERT INTO
     (first_name, last_name, email, encr_password, salt_password)
 VALUES
     ($1,$2,$3,$4,$5)
-RETURNING id, first_name, last_name, email, encr_password, salt_password, temp_password, email_activated, created_at, updated_at, deleted_at, is_deleted
+RETURNING id, first_name, last_name, email, email_activated, encr_password, salt_password, temp_password, created_at, updated_at, deleted_at, is_deleted
 `
 
 type CreateUserParams struct {
@@ -42,10 +42,10 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 		&i.FirstName,
 		&i.LastName,
 		&i.Email,
+		&i.EmailActivated,
 		&i.EncrPassword,
 		&i.SaltPassword,
 		&i.TempPassword,
-		&i.EmailActivated,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.DeletedAt,
@@ -55,7 +55,7 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 }
 
 const findUserByAccessToken = `-- name: FindUserByAccessToken :one
-SELECT id, first_name, last_name, email, encr_password, salt_password, temp_password, email_activated, created_at, updated_at, deleted_at, is_deleted
+SELECT id, first_name, last_name, email, email_activated, encr_password, salt_password, temp_password, created_at, updated_at, deleted_at, is_deleted
 FROM Users u
 WHERE u.id
 IN
@@ -74,10 +74,10 @@ func (q *Queries) FindUserByAccessToken(ctx context.Context, token string) (User
 		&i.FirstName,
 		&i.LastName,
 		&i.Email,
+		&i.EmailActivated,
 		&i.EncrPassword,
 		&i.SaltPassword,
 		&i.TempPassword,
-		&i.EmailActivated,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.DeletedAt,
@@ -87,7 +87,7 @@ func (q *Queries) FindUserByAccessToken(ctx context.Context, token string) (User
 }
 
 const findUserByEmail = `-- name: FindUserByEmail :one
-SELECT id, first_name, last_name, email, encr_password, salt_password, temp_password, email_activated, created_at, updated_at, deleted_at, is_deleted
+SELECT id, first_name, last_name, email, email_activated, encr_password, salt_password, temp_password, created_at, updated_at, deleted_at, is_deleted
 FROM Users
 WHERE email=$1
 `
@@ -100,10 +100,10 @@ func (q *Queries) FindUserByEmail(ctx context.Context, email string) (User, erro
 		&i.FirstName,
 		&i.LastName,
 		&i.Email,
+		&i.EmailActivated,
 		&i.EncrPassword,
 		&i.SaltPassword,
 		&i.TempPassword,
-		&i.EmailActivated,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.DeletedAt,
@@ -113,7 +113,7 @@ func (q *Queries) FindUserByEmail(ctx context.Context, email string) (User, erro
 }
 
 const findUserById = `-- name: FindUserById :one
-SELECT id, first_name, last_name, email, encr_password, salt_password, temp_password, email_activated, created_at, updated_at, deleted_at, is_deleted
+SELECT id, first_name, last_name, email, email_activated, encr_password, salt_password, temp_password, created_at, updated_at, deleted_at, is_deleted
 FROM Users
 WHERE id=$1
 `
@@ -126,10 +126,10 @@ func (q *Queries) FindUserById(ctx context.Context, id int32) (User, error) {
 		&i.FirstName,
 		&i.LastName,
 		&i.Email,
+		&i.EmailActivated,
 		&i.EncrPassword,
 		&i.SaltPassword,
 		&i.TempPassword,
-		&i.EmailActivated,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 		&i.DeletedAt,

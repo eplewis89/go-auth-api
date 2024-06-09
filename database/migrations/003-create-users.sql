@@ -1,7 +1,7 @@
 BEGIN TRANSACTION;
 LOCK TABLE db_config IN EXCLUSIVE MODE;
 
-CALL start_schema_update(4);
+CALL start_schema_update(3);
 
 create table Users
 (

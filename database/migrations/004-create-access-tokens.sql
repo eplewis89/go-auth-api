@@ -1,7 +1,7 @@
 BEGIN TRANSACTION;
 LOCK TABLE db_config IN EXCLUSIVE MODE;
 
-CALL start_schema_update(6);
+CALL start_schema_update(4);
 
 CREATE TABLE AccessTokens
 (

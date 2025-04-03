@@ -1,8 +1,9 @@
-// this file can be used to automatically set necessary envars
-// use with direnv
-// direnv.net
-// https://direnv.net/man/direnv.toml.1.html#codeprefixcode
+# this file can be used to automatically set necessary envars
+# use with direnv
+# direnv.net
+# https://direnv.net/man/direnv.toml.1.html#codeprefixcode
 
+export POSTGRES_DB=db_name
 export POSTGRES_USER=user
 export POSTGRES_PASSWORD=password
 

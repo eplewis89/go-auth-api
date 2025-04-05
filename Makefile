@@ -1,7 +1,11 @@
 # rundb - Run Docker Database
-run-db:
-	./database/docker-build-run.sh
+run-psql:
+	./postgresdb/docker-build-run.sh
 
 # gen - sqlc generation
-gen-sqlc:
-	@sqlc generate -f ./database/sqlc.yaml
+gen-sqlc-psql:
+	@sqlc generate -f ./postgresdb/sqlc.yaml
+
+# gen - sqlc generation
+gen-sqlc-sqlite:
+	@sqlc generate -f ./sqlitedb/sqlc.yaml
